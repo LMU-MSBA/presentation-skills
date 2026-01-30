@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Takeaway Title</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .concept-left {
+      padding-right: 20px;
+    }
+    .concept-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .emphasis-text {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+    .question-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .question-list li {
+      font-size: 28px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      padding-left: 0;
+    }
+    .so-what {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 30px;
+      padding: 20px;
+      background: #fffaf0;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+    .chart-icon {
+      width: 280px;
+      height: 220px;
+      background: #f8fafc;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--muted);
+    }
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    .chart-bar {
+      width: 30px;
+      background: var(--primary);
+      border-radius: 4px 4px 0 0;
+    }
+    .magnifier {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #3182ce;
+      border-radius: 50%;
+      position: relative;
+      margin-left: 80px;
+      margin-top: -40px;
+    }
+    .magnifier::after {
+      content: '';
+      width: 20px;
+      height: 4px;
+      background: #3182ce;
+      position: absolute;
+      bottom: -8px;
+      right: -12px;
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">Create a Takeaway Title</h1>
+
+    <div class="concept-grid">
+      <div class="concept-left">
+        <p class="emphasis-text">The.Most.Important.Part.Of.The.Slide</p>
+
+        <ul class="question-list">
+          <li>What is the main insight?</li>
+          <li>Key message?</li>
+          <li>The main takeaway.</li>
+        </ul>
+
+        <div class="so-what">The "So What"</div>
+      </div>
+
+      <div class="concept-right">
+        <div class="chart-icon">
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 40px;"></div>
+            <div class="chart-bar" style="height: 70px;"></div>
+            <div class="chart-bar" style="height: 55px;"></div>
+            <div class="chart-bar" style="height: 90px;"></div>
+            <div class="chart-bar" style="height: 65px;"></div>
+          </div>
+          <div class="magnifier"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Titles</span>
+    </div>
+  </div>
+</body>
+</html>

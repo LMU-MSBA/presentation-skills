@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's the Story?</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .dark-header {
+      background: #2d3748;
+      color: white;
+      padding: 16px 30px;
+      margin: -60px -80px 30px -80px;
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .nps-chart {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .chart-title {
+      text-align: center;
+      font-size: 20px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    .chart-container {
+      position: relative;
+      height: 280px;
+      border-left: 2px solid #e2e8f0;
+      border-bottom: 2px solid #e2e8f0;
+      margin-left: 40px;
+      margin-right: 120px;
+    }
+    .y-axis {
+      position: absolute;
+      left: -40px;
+      top: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    .legend {
+      position: absolute;
+      right: -110px;
+      top: 20px;
+      font-size: 14px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .legend-item.highlight {
+      font-weight: 700;
+    }
+    .prompt-text {
+      text-align: center;
+      font-size: 24px;
+      color: var(--secondary);
+      margin-top: 20px;
+    }
+    .prompt-emphasis {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    /* SVG line chart styles */
+    .line-gray { stroke: #a0aec0; stroke-width: 2; fill: none; }
+    .line-bold { stroke: #1a202c; stroke-width: 4; fill: none; }
+    .dot-gray { fill: #a0aec0; }
+    .dot-bold { fill: #1a202c; }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="dark-header">What's the story?</div>
+
+    <div class="nps-chart">
+      <div class="chart-title">Net Promoter Score (NPS) over time</div>
+      <div class="chart-container">
+        <div class="y-axis">
+          <span>60</span>
+          <span>50</span>
+          <span>40</span>
+          <span>30</span>
+          <span>20</span>
+          <span>10</span>
+          <span>0</span>
+        </div>
+
+        <svg width="100%" height="100%" viewBox="0 0 700 280" preserveAspectRatio="none">
+          <!-- Comp A - starts ~50, ends ~47 -->
+          <polyline class="line-gray" points="0,84 50,98 100,91 150,98 200,105 250,98 300,112 350,105 400,98 450,105 500,98 550,91 600,91 650,93" />
+          <!-- Comp B - starts ~37, ends ~44 -->
+          <polyline class="line-gray" points="0,126 50,126 100,133 150,126 200,119 250,126 300,119 350,112 400,119 450,112 500,105 550,105 600,98 650,101" />
+          <!-- Comp C - starts ~37, ends ~40 -->
+          <polyline class="line-gray" points="0,126 50,133 100,126 150,119 200,126 250,119 300,126 350,126 400,119 450,126 500,119 550,112 600,112 650,112" />
+          <!-- Our Business - starts ~29, ends ~37 (BOLD) -->
+          <polyline class="line-bold" points="0,168 50,161 100,161 150,154 200,147 250,154 300,147 350,140 400,147 450,140 500,133 550,126 600,126 650,120" />
+          <!-- Comp D - starts ~25, ends ~32 -->
+          <polyline class="line-gray" points="0,182 50,189 100,196 150,189 200,182 250,175 300,175 350,168 400,175 450,161 500,154 550,154 600,147 650,147" />
+
+          <!-- End dots -->
+          <circle class="dot-gray" cx="650" cy="93" r="5" />
+          <circle class="dot-gray" cx="650" cy="101" r="5" />
+          <circle class="dot-gray" cx="650" cy="112" r="5" />
+          <circle class="dot-bold" cx="650" cy="120" r="8" />
+          <circle class="dot-gray" cx="650" cy="147" r="5" />
+        </svg>
+
+        <div class="legend">
+          <div class="legend-item"><span class="legend-dot" style="background: #a0aec0;"></span> 47 COMP A</div>
+          <div class="legend-item"><span class="legend-dot" style="background: #a0aec0;"></span> 44 COMP B</div>
+          <div class="legend-item"><span class="legend-dot" style="background: #a0aec0;"></span> 40 COMP C</div>
+          <div class="legend-item highlight"><span class="legend-dot" style="background: #1a202c;"></span> 37 OUR BUSINESS</div>
+          <div class="legend-item"><span class="legend-dot" style="background: #a0aec0;"></span> 32 COMP D</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="prompt-text">
+      <span class="prompt-emphasis">Answer the question above</span> to create a Takeaway Title<br>
+      What does the title encourage you to focus on in the graph?
+    </p>
+
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Title Exercise</span>
+    </div>
+  </div>
+</body>
+</html>

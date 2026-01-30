@@ -1,0 +1,344 @@
+/* Data Storytelling Workshop - Shared Slide Styles */
+
+/* CSS Variables for easy theming */
+:root {
+  --primary: #1a365d;      /* Dark blue for titles */
+  --secondary: #4a5568;    /* Gray for body text */
+  --accent: #ed8936;       /* Orange for emphasis */
+  --accent-dark: #c05621;  /* Darker orange for contrast */
+  --background: #ffffff;   /* Clean white background */
+  --muted: #e2e8f0;        /* Light gray for borders */
+  --success: #38a169;      /* Green for positive */
+  --warning: #d69e2e;      /* Yellow for caution */
+  --error: #e53e3e;        /* Red for negative */
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f7fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Slide container - 16:9 aspect ratio */
+.slide {
+  width: 1280px;
+  height: 720px;
+  background: var(--background);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Typography */
+.slide-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.slide-subtitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-bottom: 30px;
+}
+
+.slide-body {
+  font-size: 24px;
+  color: var(--secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.slide-body p {
+  margin-bottom: 20px;
+}
+
+/* Lists */
+.slide-body ul, .slide-body ol {
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.slide-body li {
+  margin-bottom: 12px;
+}
+
+/* Emphasis and highlighting */
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.takeaway-title {
+  background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.descriptive-title {
+  background: var(--muted);
+  color: var(--secondary);
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 20px 0;
+  border-left: 4px solid var(--secondary);
+}
+
+/* Framework steps */
+.framework-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.framework-list li {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid var(--muted);
+  font-size: 24px;
+}
+
+.framework-list li.active {
+  background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+  border-left-color: var(--accent);
+}
+
+.framework-list .step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.framework-list li.active .step-number {
+  background: var(--accent);
+}
+
+.framework-list .step-word {
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 8px;
+}
+
+/* Data tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.data-table th {
+  background: var(--primary);
+  color: white;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--muted);
+}
+
+.data-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.data-table tr:hover {
+  background: #edf2f7;
+}
+
+.data-table .highlight-row {
+  background: #fffaf0 !important;
+  border-left: 4px solid var(--accent);
+}
+
+.data-table .number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Comparison layout */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.comparison-item {
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.comparison-item.before {
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+}
+
+.comparison-item.after {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+}
+
+.comparison-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.comparison-item.before .comparison-label {
+  color: var(--error);
+}
+
+.comparison-item.after .comparison-label {
+  color: var(--success);
+}
+
+/* Principles table */
+.principles-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+
+.principles-table th {
+  background: var(--primary);
+  color: white;
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.principles-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--muted);
+  vertical-align: top;
+}
+
+.principles-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.principle-name {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Exercise instructions */
+.exercise-box {
+  background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+  border: 2px solid #90cdf4;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.exercise-box h3 {
+  color: var(--primary);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.exercise-box ol, .exercise-box ul {
+  margin-left: 24px;
+}
+
+.exercise-box li {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+/* Time indicator */
+.time-badge {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Footer */
+.slide-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+/* Title slide specific */
+.title-slide {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title-slide .slide-title {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.title-slide .slide-subtitle {
+  font-size: 32px;
+  color: var(--accent);
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 1400px) {
+  .slide {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .slide {
+    transform: scale(0.7);
+  }
+}

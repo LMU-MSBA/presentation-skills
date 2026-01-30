@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Storytelling Workshop</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-counter {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      font-size: 14px;
+      color: #666;
+      z-index: 100;
+    }
+    .nav-hint {
+      position: fixed;
+      bottom: 10px;
+      left: 20px;
+      font-size: 12px;
+      color: #999;
+      z-index: 100;
+    }
+    /* Takeaway Title specific styles */
+    .dark-header {
+      background: #2d3748;
+      color: white;
+      padding: 16px 30px;
+      margin: -60px -80px 30px -80px;
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .concept-left { padding-right: 20px; }
+    .concept-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .emphasis-text {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+    .question-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .question-list li {
+      font-size: 28px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      padding-left: 0;
+    }
+    .so-what {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 30px;
+      padding: 20px;
+      background: #fffaf0;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+    .chart-icon {
+      width: 280px;
+      height: 220px;
+      background: #f8fafc;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--muted);
+    }
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    .chart-bar {
+      width: 30px;
+      background: var(--primary);
+      border-radius: 4px 4px 0 0;
+    }
+    .magnifier {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #3182ce;
+      border-radius: 50%;
+      position: relative;
+      margin-left: 80px;
+      margin-top: -40px;
+    }
+    .magnifier::after {
+      content: '';
+      width: 20px;
+      height: 4px;
+      background: #3182ce;
+      position: absolute;
+      bottom: -8px;
+      right: -12px;
+      transform: rotate(45deg);
+    }
+    .framing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .framing-box {
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .positive-box {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+    }
+    .negative-box {
+      background: #fef2f2;
+      border: 2px solid #fecaca;
+    }
+    .framing-label {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .positive-box .framing-label { color: var(--success); }
+    .negative-box .framing-label { color: var(--error); }
+    .title-example {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      background: white;
+      border-radius: 6px;
+      border-left: 3px solid;
+    }
+    .positive-box .title-example { border-left-color: var(--success); }
+    .negative-box .title-example { border-left-color: var(--error); }
+    .case-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .case-row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .case-label {
+      width: 200px;
+      font-size: 20px;
+      color: var(--secondary);
+      text-align: right;
+    }
+    .case-example {
+      flex: 1;
+      font-size: 28px;
+      padding: 20px 28px;
+      border-radius: 8px;
+    }
+    .sentence-case {
+      background: #f0fdf4;
+      color: var(--primary);
+      border: 2px solid #86efac;
+      font-weight: 600;
+    }
+    .title-case-bad {
+      background: #f8fafc;
+      color: var(--secondary);
+      border: 2px solid #e2e8f0;
+      text-decoration: line-through;
+      text-decoration-color: var(--error);
+    }
+    .check-icon { color: var(--success); font-size: 24px; margin-left: 16px; }
+    .x-icon { color: var(--error); font-size: 24px; margin-left: 16px; }
+    .quote-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      text-align: center;
+    }
+    .main-quote {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.4;
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+    .sub-quote {
+      font-size: 26px;
+      color: var(--secondary);
+      max-width: 800px;
+      line-height: 1.5;
+    }
+    .highlight-word { color: var(--accent); }
+    .test-box {
+      margin-top: 30px;
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #90cdf4;
+      border-radius: 12px;
+      padding: 20px 30px;
+      text-align: center;
+    }
+    .test-box p {
+      font-size: 20px;
+      color: var(--primary);
+      margin: 0;
+    }
+    .test-label {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .key-point {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border-radius: 12px;
+    }
+    .key-point p {
+      font-size: 24px;
+      color: var(--primary);
+      font-weight: 600;
+      margin: 0;
+    }
+    .key-point .subtitle {
+      font-size: 18px;
+      color: var(--secondary);
+      font-weight: 400;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Title -->
+  <div class="slide title-slide" data-slide="1">
+    <h1 class="slide-title">Data Storytelling Workshop</h1>
+    <p class="slide-subtitle">How to make your slides actually say something</p>
+    <div class="slide-footer">
+      <span>Analytics Workshop Series</span>
+      <span>2 Hours</span>
+    </div>
+  </div>
+
+  <!-- Slide 2: DC ACT Framework -->
+  <div class="slide" data-slide="2">
+    <h1 class="slide-title">The DC ACT Framework</h1>
+    <p class="slide-subtitle">5 steps to data-driven decisions</p>
+    <ul class="framework-list">
+      <li>
+        <span class="step-number">1</span>
+        <span class="step-word">Define</span>
+        the business problem
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <span class="step-word">Collect</span>
+        and prepare the data
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <span class="step-word">Analyze</span>
+        the data and generate insights
+      </li>
+      <li class="active">
+        <span class="step-number">4</span>
+        <span class="step-word">Communicate</span>
+        the insights, recommendations, and predictions
+      </li>
+      <li>
+        <span class="step-number">5</span>
+        <span class="step-word">Act</span>
+        and track the change
+      </li>
+    </ul>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Today's Focus: Communicate</span>
+    </div>
+  </div>
+
+  <!-- Slide 3: Scenario Introduction -->
+  <div class="slide" data-slide="3">
+    <h1 class="slide-title">Your Scenario</h1>
+    <div class="slide-body">
+      <div class="exercise-box" style="margin-bottom: 24px;">
+        <h3 style="margin-bottom: 12px;">Marketing Channel ROI Analysis</h3>
+        <p style="margin-bottom: 8px;">You are a marketing analyst presenting Q4 results to the CMO.</p>
+        <p style="margin-bottom: 0;">Your goal: Help leadership decide where to allocate next quarter's budget.</p>
+      </div>
+      <p style="margin-bottom: 12px;"><strong>The Challenge:</strong> You have data on 4 marketing channels, each receiving $25,000 in Q4. Performance varied significantly—the CMO needs a clear recommendation.</p>
+      <p style="font-size: 26px; color: var(--primary); font-weight: 600;"><strong>Your Task:</strong> Create a slide that communicates the key insight from this data.</p>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Group Exercise</span>
+    </div>
+  </div>
+
+  <!-- Slide 4: Dataset -->
+  <div class="slide" data-slide="4">
+    <h1 class="slide-title">Marketing Channel ROI Data</h1>
+    <p class="slide-subtitle">Q4 Performance - Equal Budget Allocation ($25K per channel)</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Spend</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>Conversions</th>
+          <th>Conv. Rate</th>
+          <th>Cost/Conv.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paid Search</td>
+          <td class="number">$25,000</td>
+          <td class="number">500,000</td>
+          <td class="number">15,000</td>
+          <td class="number">350</td>
+          <td class="number">2.3%</td>
+          <td class="number">$71</td>
+        </tr>
+        <tr>
+          <td>Social Media</td>
+          <td class="number">$25,000</td>
+          <td class="number">1,200,000</td>
+          <td class="number">8,000</td>
+          <td class="number">85</td>
+          <td class="number">1.1%</td>
+          <td class="number">$294</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Email Marketing</td>
+          <td class="number">$25,000</td>
+          <td class="number">150,000</td>
+          <td class="number">12,000</td>
+          <td class="number">420</td>
+          <td class="number">3.5%</td>
+          <td class="number">$60</td>
+        </tr>
+        <tr>
+          <td>Display Ads</td>
+          <td class="number">$25,000</td>
+          <td class="number">2,000,000</td>
+          <td class="number">4,000</td>
+          <td class="number">45</td>
+          <td class="number">1.1%</td>
+          <td class="number">$556</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Source: Q4 Marketing Analytics</span>
+    </div>
+  </div>
+
+  <!-- Slide 5: Group Exercise 1 -->
+  <div class="slide" data-slide="5">
+    <span class="time-badge">20 minutes</span>
+    <h1 class="slide-title">Group Exercise #1</h1>
+    <p class="slide-subtitle">Create Your First Slide</p>
+    <div class="exercise-box" style="padding: 24px;">
+      <h3 style="margin-bottom: 12px;">Your Task</h3>
+      <ol style="margin-bottom: 0;">
+        <li style="margin-bottom: 6px;">Analyze the Marketing Channel ROI data</li>
+        <li style="margin-bottom: 6px;">Identify the most important insight for the CMO</li>
+        <li style="margin-bottom: 6px;">Create a single slide with a title and visualization</li>
+        <li style="margin-bottom: 0;">Copy your slide into: <strong style="color: var(--accent);">r.isba.co/6089-prez-slides-s26</strong></li>
+      </ol>
+    </div>
+    <p style="margin-top: 20px; font-size: 22px;"><strong>Remember:</strong> You're presenting to the CMO who needs to make a budget decision. Focus on what matters most—your slide should answer: "So what?"</p>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Breakout Rooms</span>
+    </div>
+  </div>
+
+  <!-- Slide 6: Knaflic Principles -->
+  <div class="slide" data-slide="6">
+    <h1 class="slide-title">7 Principles for Data Storytelling</h1>
+    <p class="slide-subtitle">Based on Cole Nussbaumer Knaflic's "Storytelling with Data"</p>
+    <table class="principles-table">
+      <thead>
+        <tr>
+          <th>Principle</th>
+          <th>Application</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="principle-name">1. Understand the Context</td>
+          <td>Know your audience and what action you want them to take</td>
+        </tr>
+        <tr>
+          <td class="principle-name">2. Choose Appropriate Visuals</td>
+          <td>Match the chart type to your message and data</td>
+        </tr>
+        <tr>
+          <td class="principle-name">3. Eliminate Clutter</td>
+          <td>Remove anything that doesn't support your message</td>
+        </tr>
+        <tr>
+          <td class="principle-name">4. Focus Attention</td>
+          <td>Use color and position to guide the eye</td>
+        </tr>
+        <tr>
+          <td class="principle-name">5. Think Like a Designer</td>
+          <td>Create visual hierarchy and flow</td>
+        </tr>
+        <tr>
+          <td class="principle-name">6. Tell a Story</td>
+          <td>Structure with beginning, middle, and end</td>
+        </tr>
+        <tr>
+          <td class="principle-name">7. Lead with Insight</td>
+          <td>Your title should state the "so what"</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Key Takeaway: Takeaway Titles</span>
+    </div>
+  </div>
+
+  <!-- Slide 7: Create a Takeaway Title (NEW) -->
+  <div class="slide" data-slide="7">
+    <h1 class="slide-title">Create a Takeaway Title</h1>
+    <div class="concept-grid">
+      <div class="concept-left">
+        <p class="emphasis-text">The.Most.Important.Part.Of.The.Slide</p>
+        <ul class="question-list">
+          <li>What is the main insight?</li>
+          <li>Key message?</li>
+          <li>The main takeaway.</li>
+        </ul>
+        <div class="so-what">The "So What"</div>
+      </div>
+      <div class="concept-right">
+        <div class="chart-icon">
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 40px;"></div>
+            <div class="chart-bar" style="height: 70px;"></div>
+            <div class="chart-bar" style="height: 55px;"></div>
+            <div class="chart-bar" style="height: 90px;"></div>
+            <div class="chart-bar" style="height: 65px;"></div>
+          </div>
+          <div class="magnifier"></div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Titles</span>
+    </div>
+  </div>
+
+  <!-- Slide 8: Same Data, Different Stories (NEW) -->
+  <div class="slide" data-slide="8">
+    <h1 class="slide-title">Same Data, Different Stories</h1>
+    <p class="slide-subtitle">Your Takeaway Title tells the audience how to feel about the data</p>
+    <div class="framing-grid">
+      <div class="framing-box positive-box">
+        <div class="framing-label">Positive Framing</div>
+        <div class="title-example">NPS is showing growth over time</div>
+        <div class="title-example">We're improving but still behind competitors</div>
+        <div class="title-example">Net Promoter Score has opportunity for growth</div>
+      </div>
+      <div class="framing-box negative-box">
+        <div class="framing-label">Negative Framing</div>
+        <div class="title-example">Our net promoter score needs urgent attention</div>
+        <div class="title-example">Competitors edging Our Company in NPS</div>
+        <div class="title-example">We're at the bottom quartile of NPS</div>
+      </div>
+    </div>
+    <div class="key-point">
+      <p>The same data can tell different stories</p>
+      <p class="subtitle">Choose the framing that matches your message and call to action</p>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Title Framing</span>
+    </div>
+  </div>
+
+  <!-- Slide 9: Sentence Case (NEW) -->
+  <div class="slide" data-slide="9">
+    <h1 class="slide-title">Use Sentence Case for Takeaway Titles</h1>
+    <div class="case-comparison">
+      <div class="case-row">
+        <div class="case-label">Takeaway Title</div>
+        <div class="case-example sentence-case">
+          NPS is increasing over time
+          <span class="check-icon">&#10003;</span>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-label">Descriptive Title</div>
+        <div class="case-example title-case-bad">
+          NPS Over Time
+          <span class="x-icon">&#10007;</span>
+        </div>
+      </div>
+    </div>
+    <div class="key-point" style="margin-top: 50px;">
+      <p>Sentence case signals a complete thought, not a label</p>
+      <p class="subtitle">Takeaway Titles read like a sentence because they communicate a finding</p>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Title Format</span>
+    </div>
+  </div>
+
+  <!-- Slide 10: The Manager Test (NEW) -->
+  <div class="slide" data-slide="10">
+    <h1 class="slide-title">The Manager Test</h1>
+    <div class="quote-container">
+      <p class="main-quote">
+        A manager should be able to<br>
+        just read the <span class="highlight-word">Takeaway Titles</span>.
+      </p>
+      <p class="sub-quote">
+        If they need supporting evidence,<br>
+        they can look at the rest of the slide.
+      </p>
+    </div>
+    <div class="test-box">
+      <p><span class="test-label">Quick Test:</span> If someone only reads your titles and skips everything else, do they understand your key findings and recommendations?</p>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Title Validation</span>
+    </div>
+  </div>
+
+  <!-- Slide 11: Before/After -->
+  <div class="slide" data-slide="11">
+    <h1 class="slide-title">The Power of Takeaway Titles</h1>
+    <div class="comparison">
+      <div class="comparison-item before">
+        <div class="comparison-label">Before: Descriptive Title</div>
+        <div class="descriptive-title">Q4 Marketing Channel Performance</div>
+        <p style="font-size: 18px; color: var(--secondary); margin-top: 16px;">
+          Labels the data. Doesn't tell anyone what to think or do.
+        </p>
+        <p style="font-size: 16px; color: var(--error); margin-top: 12px;">
+          Makes them figure out the "so what" on their own.
+        </p>
+      </div>
+      <div class="comparison-item after">
+        <div class="comparison-label">After: Takeaway Title</div>
+        <div class="takeaway-title">Email Marketing Delivers 9x More Conversions per Dollar Than Display Ads</div>
+        <p style="font-size: 18px; color: var(--secondary); margin-top: 16px;">
+          Tells them what matters and what to do about it.
+        </p>
+        <p style="font-size: 16px; color: var(--success); margin-top: 12px;">
+          No guessing required.
+        </p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Key Transformation</span>
+    </div>
+  </div>
+
+  <!-- Slide 12: Group Exercise 2 -->
+  <div class="slide" data-slide="12">
+    <span class="time-badge">20 minutes</span>
+    <h1 class="slide-title">Group Exercise #2</h1>
+    <p class="slide-subtitle">Apply the Principles</p>
+    <div class="exercise-box">
+      <h3>Your Task</h3>
+      <ol>
+        <li>Review your slide from Exercise #1</li>
+        <li>Apply Knaflic's principles to improve it</li>
+        <li>Focus especially on creating a <span class="highlight">Takeaway Title</span></li>
+        <li>Use AI to help refine your title (optional)</li>
+      </ol>
+    </div>
+    <div class="slide-body">
+      <p><strong>AI Prompt Tip:</strong></p>
+      <p style="background: #f8fafc; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 18px;">
+        "I have data showing [your findings]. Help me write a Takeaway Title that clearly states the 'so what' for a CMO deciding on budget allocation."
+      </p>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Breakout Rooms</span>
+    </div>
+  </div>
+
+  <!-- Slide 13: Take-Home Assignment -->
+  <div class="slide" data-slide="13">
+    <h1 class="slide-title">Take-Home Assignment</h1>
+    <p class="slide-subtitle">For workshop credit</p>
+    <div class="slide-body">
+      <div class="exercise-box" style="padding: 20px; margin-bottom: 16px;">
+        <h3 style="margin-bottom: 10px;">Your task</h3>
+        <ol style="margin-bottom: 0;">
+          <li style="margin-bottom: 4px;">Pick ONE of the two "bad slide" options</li>
+          <li style="margin-bottom: 4px;">Transform it into a slide with a Takeaway Title</li>
+          <li style="margin-bottom: 0;">Your title must say the "so what"—not just describe the data</li>
+        </ol>
+      </div>
+      <p style="margin-bottom: 8px;"><strong>Pass/Fail:</strong> Does your title convey a <span class="highlight">Takeaway</span>?</p>
+      <p style="margin-top: 16px; margin-bottom: 8px;"><strong>Options:</strong></p>
+      <ul style="margin-top: 0;">
+        <li style="margin-bottom: 4px;"><strong>A:</strong> Website Traffic (4 sources)</li>
+        <li><strong>B:</strong> Employee Satisfaction (4 departments)</li>
+      </ul>
+    </div>
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>See assignment document for details</span>
+    </div>
+  </div>
+
+  <div class="slide-counter">
+    <span id="currentSlide">1</span> / <span id="totalSlides">13</span>
+  </div>
+  <div class="nav-hint">Use arrow keys to navigate | Press F for fullscreen</div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 13;
+
+    function showSlide(n) {
+      // Wrap around
+      if (n > totalSlides) currentSlide = 1;
+      if (n < 1) currentSlide = totalSlides;
+
+      // Hide all slides
+      document.querySelectorAll('.slide').forEach(slide => {
+        slide.classList.remove('active');
+      });
+
+      // Show current slide
+      const activeSlide = document.querySelector(`[data-slide="${currentSlide}"]`);
+      if (activeSlide) {
+        activeSlide.classList.add('active');
+      }
+
+      // Update counter
+      document.getElementById('currentSlide').textContent = currentSlide;
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        currentSlide = 1;
+        showSlide(currentSlide);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        currentSlide = totalSlides;
+        showSlide(currentSlide);
+      } else if (e.key === 'f' || e.key === 'F') {
+        // Toggle fullscreen
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }
+    });
+
+    // Click navigation (click right half to advance, left half to go back)
+    document.addEventListener('click', (e) => {
+      if (e.clientX > window.innerWidth / 2) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    });
+
+    // Initialize
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Manager Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .quote-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 450px;
+      text-align: center;
+    }
+    .main-quote {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.4;
+      max-width: 900px;
+      margin-bottom: 50px;
+    }
+    .sub-quote {
+      font-size: 28px;
+      color: var(--secondary);
+      max-width: 800px;
+      line-height: 1.5;
+    }
+    .highlight-word {
+      color: var(--accent);
+    }
+    .test-box {
+      position: absolute;
+      bottom: 100px;
+      left: 80px;
+      right: 80px;
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #90cdf4;
+      border-radius: 12px;
+      padding: 20px 30px;
+      text-align: center;
+    }
+    .test-box p {
+      font-size: 20px;
+      color: var(--primary);
+      margin: 0;
+    }
+    .test-label {
+      font-weight: 700;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">The Manager Test</h1>
+
+    <div class="quote-container">
+      <p class="main-quote">
+        A manager should be able to<br>
+        just read the <span class="highlight-word">Takeaway Titles</span>.
+      </p>
+      <p class="sub-quote">
+        If they need supporting evidence,<br>
+        they can look at the rest of the slide.
+      </p>
+    </div>
+
+    <div class="test-box">
+      <p><span class="test-label">Quick Test:</span> If someone only reads your titles and skips everything else, do they understand your key findings and recommendations?</p>
+    </div>
+
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Title Validation</span>
+    </div>
+  </div>
+</body>
+</html>

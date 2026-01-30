@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentence Case for Takeaway Titles</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .case-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      margin-top: 50px;
+    }
+    .case-row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .case-label {
+      width: 200px;
+      font-size: 20px;
+      color: var(--secondary);
+      text-align: right;
+    }
+    .case-example {
+      flex: 1;
+      font-size: 32px;
+      padding: 24px 32px;
+      border-radius: 8px;
+    }
+    .sentence-case {
+      background: #f0fdf4;
+      color: var(--primary);
+      border: 2px solid #86efac;
+      font-weight: 600;
+    }
+    .title-case {
+      background: #f8fafc;
+      color: var(--secondary);
+      border: 2px solid #e2e8f0;
+      text-decoration: line-through;
+      text-decoration-color: var(--error);
+    }
+    .check-icon {
+      color: var(--success);
+      font-size: 28px;
+      margin-left: 20px;
+    }
+    .x-icon {
+      color: var(--error);
+      font-size: 28px;
+      margin-left: 20px;
+    }
+    .explanation {
+      text-align: center;
+      margin-top: 60px;
+      padding: 30px;
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border-radius: 12px;
+    }
+    .explanation p {
+      font-size: 24px;
+      color: var(--primary);
+      margin: 0;
+    }
+    .explanation .reason {
+      font-size: 20px;
+      color: var(--secondary);
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">Use Sentence Case for Takeaway Titles</h1>
+
+    <div class="case-comparison">
+      <div class="case-row">
+        <div class="case-label">Takeaway Title</div>
+        <div class="case-example sentence-case">
+          NPS is increasing over time
+          <span class="check-icon">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <div class="case-label">Descriptive Title</div>
+        <div class="case-example title-case">
+          NPS Over Time
+          <span class="x-icon">&#10007;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="explanation">
+      <p>Sentence case signals a complete thought, not a label</p>
+      <p class="reason">Takeaway Titles read like a sentence because they communicate a finding</p>
+    </div>
+
+    <div class="slide-footer">
+      <span>Data Storytelling Workshop</span>
+      <span>Takeaway Title Format</span>
+    </div>
+  </div>
+</body>
+</html>
