@@ -1,5 +1,7 @@
 # Take-Home Assignment: Data Storytelling Workshop
 
+**Due: February 9 at 11:59 PM**
+
 ## Instructions
 
 You practiced transforming descriptive slides into slides with Takeaway Titles during the workshop. Now it's time to demonstrate this skill on your own.

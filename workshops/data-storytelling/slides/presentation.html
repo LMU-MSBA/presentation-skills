@@ -215,10 +215,10 @@
       margin-bottom: 40px;
     }
     .sub-quote {
-      font-size: 26px;
+      font-size: 42px;
       color: var(--secondary);
-      max-width: 800px;
-      line-height: 1.5;
+      max-width: 950px;
+      line-height: 1.4;
     }
     .highlight-word { color: var(--accent); }
     .test-box {
@@ -230,7 +230,7 @@
       text-align: center;
     }
     .test-box p {
-      font-size: 20px;
+      font-size: 28px;
       color: var(--primary);
       margin: 0;
     }
@@ -256,6 +256,50 @@
       color: var(--secondary);
       font-weight: 400;
       margin-top: 8px;
+    }
+    .comparison-stacked {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .comparison-row {
+      padding: 20px 30px;
+      border-radius: 12px;
+    }
+    .comparison-row.before {
+      background: #fef2f2;
+      border: 2px solid #fecaca;
+    }
+    .comparison-row.after {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+    }
+    .comparison-row .comparison-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .comparison-row.before .comparison-label { color: var(--error); }
+    .comparison-row.after .comparison-label { color: var(--success); }
+    .comparison-row .descriptive-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--secondary);
+      padding: 16px 20px;
+      background: #e2e8f0;
+      border-left: 4px solid var(--secondary);
+      border-radius: 0 8px 8px 0;
+    }
+    .comparison-row .takeaway-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: white;
+      padding: 16px 20px;
+      background: var(--primary);
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -381,7 +425,7 @@
 
   <!-- Slide 5: Group Exercise 1 -->
   <div class="slide" data-slide="5">
-    <span class="time-badge">15 minutes</span>
+    <span class="time-badge">12 minutes</span>
     <h1 class="slide-title">Group Exercise #1</h1>
     <p class="slide-subtitle">Create your first slide</p>
     <div class="exercise-box" style="padding: 24px;">
@@ -399,7 +443,7 @@
   </div>
 
   <!-- Slide 6: Knaflic Principles -->
-  <div class="slide" data-slide="6">
+  <div class="slide" data-slide="6" id="knaflic-slide">
     <h1 class="slide-title">7 Principles for Data Storytelling</h1>
     <p class="slide-subtitle">Based on Cole Nussbaumer Knaflic's <a href="https://learning.oreilly.com/library/view/storytelling-with-data/9781119002253/" target="_blank" style="color: var(--accent);">"Storytelling with Data"</a></p>
     <table class="principles-table">
@@ -409,7 +453,7 @@
           <th>Application</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="knaflic-rows">
         <tr>
           <td class="principle-name">1. Understand the Context</td>
           <td>Know your audience and what action you want them to take</td>
@@ -447,17 +491,17 @@
   </div>
 
   <!-- Slide 7: Create a Takeaway Title (NEW) -->
-  <div class="slide" data-slide="7">
-    <h1 class="slide-title">Create a Takeaway Title</h1>
+  <div class="slide" data-slide="7" id="takeaway-slide">
+    <h1 class="slide-title">Create a takeaway title</h1>
     <div class="concept-grid">
       <div class="concept-left">
-        <p class="emphasis-text">The.Most.Important.Part.Of.The.Slide</p>
-        <ul class="question-list">
+        <p class="emphasis-text" id="takeaway-emphasis">The.Most.Important.Part.Of.The.Slide</p>
+        <ul class="question-list" id="takeaway-questions">
           <li>What is the main insight?</li>
           <li>Key message?</li>
           <li>The main takeaway.</li>
         </ul>
-        <div class="so-what">The "So What"</div>
+        <div class="so-what" id="takeaway-sowhat">The "So What"</div>
       </div>
       <div class="concept-right">
         <div class="chart-icon">
@@ -476,11 +520,23 @@
     </div>
   </div>
 
-  <!-- Slide 8: Same Data, Different Stories (NEW) -->
+  <!-- Slide 8: Interactive Activity Link -->
   <div class="slide" data-slide="8">
-    <h1 class="slide-title">Same Data, Different Stories</h1>
-    <p class="slide-subtitle">Your Takeaway Title tells the audience how to feel about the data</p>
-    <div class="framing-grid">
+    <h1 class="slide-title">Practice: What's the story?</h1>
+    <p class="slide-subtitle">Create takeaway titles from NPS data</p>
+    <div class="slide-body" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 40px;">
+      <p style="font-size: 26px; color: var(--secondary); margin-bottom: 50px; max-width: 800px; line-height: 1.5;">Look at the same data and practice writing different takeaway titles based on what story you want to tell.</p>
+      <a href="https://docs.google.com/presentation/d/1tbE27GxtOel5ofWzOBiWihQi92PzyCT2rN40TZEUIj8/edit?usp=sharing" target="_blank" style="display: inline-block; padding: 24px 48px; background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%); color: white; text-decoration: none; border-radius: 12px; font-size: 26px; font-weight: 600; box-shadow: 0 4px 14px rgba(45, 55, 72, 0.3);">Open Interactive Slides</a>
+    </div>
+    <div class="slide-footer">
+    </div>
+  </div>
+
+  <!-- Slide 9: Same Data, Different Stories (NEW) -->
+  <div class="slide" data-slide="9" id="framing-slide">
+    <h1 class="slide-title">Same data, different stories</h1>
+    <p class="slide-subtitle">Your takeaway title tells the audience how to feel about the data</p>
+    <div class="framing-grid" id="framing-items">
       <div class="framing-box positive-box">
         <div class="framing-label">Positive Framing</div>
         <div class="title-example">NPS is showing growth over time</div>
@@ -494,7 +550,7 @@
         <div class="title-example">We're at the bottom quartile of NPS</div>
       </div>
     </div>
-    <div class="key-point">
+    <div class="key-point" id="framing-keypoint">
       <p>The same data can tell different stories</p>
       <p class="subtitle">Choose the framing that matches your message and call to action</p>
     </div>
@@ -502,10 +558,10 @@
     </div>
   </div>
 
-  <!-- Slide 9: Sentence Case (NEW) -->
-  <div class="slide" data-slide="9">
-    <h1 class="slide-title">Use Sentence Case for Takeaway Titles</h1>
-    <div class="case-comparison">
+  <!-- Slide 10: Sentence Case (NEW) -->
+  <div class="slide" data-slide="10" id="sentence-case-slide">
+    <h1 class="slide-title">Use sentence case for takeaway titles</h1>
+    <div class="case-comparison" id="sentence-case-items">
       <div class="case-row">
         <div class="case-label">Takeaway Title</div>
         <div class="case-example sentence-case">
@@ -521,7 +577,7 @@
         </div>
       </div>
     </div>
-    <div class="key-point" style="margin-top: 50px;">
+    <div class="key-point" id="sentence-case-keypoint" style="margin-top: 50px;">
       <p>Sentence case signals a complete thought, not a label</p>
       <p class="subtitle">Takeaway Titles read like a sentence because they communicate a finding</p>
     </div>
@@ -529,74 +585,36 @@
     </div>
   </div>
 
-  <!-- Slide 10: The Manager Test (NEW) -->
-  <div class="slide" data-slide="10">
-    <h1 class="slide-title">The Manager Test</h1>
-    <div class="quote-container">
-      <p class="main-quote">
-        A manager should be able to<br>
-        just read the <span class="highlight-word">Takeaway Titles</span>.
-      </p>
-      <p class="sub-quote">
+  <!-- Slide 11: The Manager Test (NEW) -->
+  <div class="slide" data-slide="11" id="manager-test-slide">
+    <h1 class="slide-title">A manager should be able to just<br>read the takeaway titles</h1>
+    <div class="quote-container" id="manager-test-items">
+      <p class="sub-quote" style="margin-top: 40px;">
         If they need supporting evidence,<br>
         they can look at the rest of the slide.
       </p>
     </div>
-    <div class="test-box">
+    <div class="test-box" id="manager-test-box">
       <p><span class="test-label">Quick Test:</span> If someone only reads your titles and skips everything else, do they understand your key findings and recommendations?</p>
     </div>
     <div class="slide-footer">
     </div>
   </div>
 
-  <!-- Slide 11: Before/After -->
-  <div class="slide" data-slide="11">
-    <h1 class="slide-title">The Power of Takeaway Titles</h1>
-    <div class="comparison">
-      <div class="comparison-item before">
+  <!-- Slide 12: Before/After -->
+  <div class="slide" data-slide="12" id="before-after-slide">
+    <h1 class="slide-title">The power of takeaway titles</h1>
+    <div class="comparison-stacked" id="before-after-items">
+      <div class="comparison-row before">
         <div class="comparison-label">Before: Descriptive Title</div>
         <div class="descriptive-title">Q4 Marketing Channel Performance</div>
-        <p style="font-size: 18px; color: var(--secondary); margin-top: 16px;">
-          Labels the data. Doesn't tell anyone what to think or do.
-        </p>
-        <p style="font-size: 16px; color: var(--error); margin-top: 12px;">
-          Makes them figure out the "so what" on their own.
-        </p>
+        <p style="font-size: 16px; color: var(--secondary); margin: 8px 0 0 0;">Labels the data. Makes them figure out the "so what" on their own.</p>
       </div>
-      <div class="comparison-item after">
+      <div class="comparison-row after">
         <div class="comparison-label">After: Takeaway Title</div>
         <div class="takeaway-title">Email marketing delivers 9x more conversions per dollar than display ads</div>
-        <p style="font-size: 18px; color: var(--secondary); margin-top: 16px;">
-          Tells them what matters and what to do about it.
-        </p>
-        <p style="font-size: 16px; color: var(--success); margin-top: 12px;">
-          No guessing required.
-        </p>
+        <p style="font-size: 16px; color: var(--secondary); margin: 8px 0 0 0;">Tells them what matters and what to do about it. No guessing required.</p>
       </div>
-    </div>
-    <div class="slide-footer">
-    </div>
-  </div>
-
-  <!-- Slide 12: Group Exercise 2 -->
-  <div class="slide" data-slide="12">
-    <span class="time-badge">20 minutes</span>
-    <h1 class="slide-title">Group Exercise #2</h1>
-    <p class="slide-subtitle">Apply the Principles</p>
-    <div class="exercise-box">
-      <h3>Your Task</h3>
-      <ol>
-        <li>Review your slide from Exercise #1</li>
-        <li>Apply Knaflic's principles to improve it</li>
-        <li>Focus especially on creating a <span class="highlight">Takeaway Title</span></li>
-        <li>Use AI to help refine your title (optional)</li>
-      </ol>
-    </div>
-    <div class="slide-body">
-      <p><strong>AI Prompt Tip:</strong></p>
-      <p style="background: #f8fafc; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 18px;">
-        "I have data showing [your findings]. Help me write a Takeaway Title that clearly states the 'so what' for a CMO deciding on budget allocation."
-      </p>
     </div>
     <div class="slide-footer">
     </div>
@@ -604,10 +622,10 @@
 
   <!-- Slide 13: Adding Callouts -->
   <div class="slide" data-slide="13">
-    <h1 class="slide-title">Adding Callouts to Your Data</h1>
+    <h1 class="slide-title">Add callouts to your visualization</h1>
     <p class="slide-subtitle">Simple ways to highlight your key insight</p>
     <div class="slide-body">
-      <p style="margin-bottom: 20px;">You don't need fancy charts. <strong>Screenshot your data table</strong> and add callouts:</p>
+      <p style="margin-bottom: 20px;">You don't need fancy charts to start. <strong>Screenshot your data table</strong> and add callouts:</p>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
         <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
           <h3 style="margin-top: 0; color: var(--primary);">Callout Ideas</h3>
@@ -620,12 +638,12 @@
         </div>
         <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary);">
           <h3 style="margin-top: 0; color: var(--primary);">How to Add Callouts</h3>
-          <ul style="margin-bottom: 0;">
+          <ul style="margin-bottom: 12px;">
             <li><strong>PowerPoint/Slides:</strong> Insert → Shape → Circle/Arrow</li>
             <li><strong>Text box:</strong> Insert → Text box</li>
             <li><strong>Highlight:</strong> Select cell → Fill color</li>
-            <li><strong>Screenshot:</strong> Paste table as image first</li>
           </ul>
+          <p style="margin: 0; font-size: 16px;">Need inspiration? Check out <a href="https://sherwood.news/chartr/newsletters/" target="_blank" style="color: var(--accent); font-weight: 600;">Chartr Newsletters</a></p>
         </div>
       </div>
       <p style="margin-top: 20px; font-size: 20px; color: var(--secondary);"><em>Tip: Callouts guide the viewer's eye to what matters most. Don't make them search for your insight.</em></p>
@@ -634,10 +652,27 @@
     </div>
   </div>
 
-  <!-- Slide 14: Take-Home Assignment -->
+  <!-- Slide 14: Group Exercise 2 -->
   <div class="slide" data-slide="14">
+    <span class="time-badge">12 minutes</span>
+    <h1 class="slide-title">Group Exercise #2</h1>
+    <p class="slide-subtitle">Apply the principles</p>
+    <div class="exercise-box" style="padding: 32px;">
+      <h3 style="font-size: 28px; margin-bottom: 20px;">Your Task</h3>
+      <ol style="font-size: 26px;">
+        <li style="margin-bottom: 16px;">Review your slide from Exercise #1</li>
+        <li style="margin-bottom: 16px;">Apply Knaflic's principles to improve it</li>
+        <li>Focus especially on creating a <span class="highlight">Takeaway Title</span></li>
+      </ol>
+    </div>
+    <div class="slide-footer">
+    </div>
+  </div>
+
+  <!-- Slide 15: Take-Home Assignment -->
+  <div class="slide" data-slide="15">
     <h1 class="slide-title">Take-Home Assignment</h1>
-    <p class="slide-subtitle">For workshop credit</p>
+    <p class="slide-subtitle">Due: February 9 at 11:59 PM</p>
     <div class="slide-body">
       <div class="exercise-box" style="padding: 20px; margin-bottom: 16px;">
         <h3 style="margin-bottom: 10px;">Your task</h3>
@@ -655,6 +690,7 @@
             <li style="margin-bottom: 2px;"><strong>A:</strong> Website Traffic (4 sources)</li>
             <li><strong>B:</strong> Employee Satisfaction (4 departments)</li>
           </ul>
+          <p style="margin: 12px 0 0 0;"><strong>Submit:</strong> Single-page PDF to Brightspace</p>
         </div>
         <a href="../take-home-assignment.pdf" target="_blank" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; white-space: nowrap;">Download Assignment (PDF)</a>
       </div>
@@ -664,42 +700,95 @@
   </div>
 
   <div class="slide-counter">
-    <span id="currentSlide">1</span> / <span id="totalSlides">14</span>
+    <span id="currentSlide">1</span> / <span id="totalSlides">15</span>
   </div>
   <div class="nav-hint">Use arrow keys to navigate | Press F for fullscreen</div>
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 14;
+    const totalSlides = 15;
 
-    // DC ACT Framework animation state
-    const dcActSlideNum = 2;
-    let dcActStep = 0;
-    const dcActItems = document.querySelectorAll('#dc-act-list li');
+    // Animation configuration for each animated slide
+    const animatedSlides = {
+      2: { // DC ACT Framework
+        items: document.querySelectorAll('#dc-act-list li'),
+        step: 0
+      },
+      6: { // Knaflic Principles
+        items: document.querySelectorAll('#knaflic-rows tr'),
+        step: 0
+      },
+      7: { // Create a Takeaway Title
+        items: [
+          document.getElementById('takeaway-emphasis'),
+          ...document.querySelectorAll('#takeaway-questions li'),
+          document.getElementById('takeaway-sowhat')
+        ],
+        step: 0
+      },
+      9: { // Same Data, Different Stories
+        items: [
+          ...document.querySelectorAll('#framing-items .framing-box'),
+          document.getElementById('framing-keypoint')
+        ],
+        step: 0
+      },
+      10: { // Sentence Case
+        items: [
+          ...document.querySelectorAll('#sentence-case-items .case-row'),
+          document.getElementById('sentence-case-keypoint')
+        ],
+        step: 0
+      },
+      11: { // Manager Test
+        items: [
+          document.querySelector('#manager-test-items .sub-quote'),
+          document.getElementById('manager-test-box')
+        ],
+        step: 0
+      },
+      12: { // Before/After
+        items: document.querySelectorAll('#before-after-items .comparison-row'),
+        step: 0
+      }
+    };
 
-    // Hide DC ACT items initially
-    dcActItems.forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateX(-20px)';
-      item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    // Hide all animated items initially and set up transitions
+    Object.values(animatedSlides).forEach(slideConfig => {
+      slideConfig.items.forEach(item => {
+        if (item) {
+          item.style.opacity = '0';
+          item.style.transform = 'translateX(-20px)';
+          item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        }
+      });
     });
 
-    function showNextDcActStep() {
-      if (dcActStep < dcActItems.length) {
-        dcActItems[dcActStep].style.opacity = '1';
-        dcActItems[dcActStep].style.transform = 'translateX(0)';
-        dcActStep++;
-        return true; // Step was shown
+    function showNextStep(slideNum) {
+      const config = animatedSlides[slideNum];
+      if (config && config.step < config.items.length) {
+        const item = config.items[config.step];
+        if (item) {
+          item.style.opacity = '1';
+          item.style.transform = 'translateX(0)';
+        }
+        config.step++;
+        return true;
       }
-      return false; // All steps shown
+      return false;
     }
 
-    function resetDcActAnimation() {
-      dcActStep = 0;
-      dcActItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-20px)';
-      });
+    function resetAnimation(slideNum) {
+      const config = animatedSlides[slideNum];
+      if (config) {
+        config.step = 0;
+        config.items.forEach(item => {
+          if (item) {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+          }
+        });
+      }
     }
 
     function showSlide(n) {
@@ -718,9 +807,9 @@
         activeSlide.classList.add('active');
       }
 
-      // Reset DC ACT animation when entering that slide
-      if (currentSlide === dcActSlideNum) {
-        resetDcActAnimation();
+      // Reset animation when entering an animated slide
+      if (animatedSlides[currentSlide]) {
+        resetAnimation(currentSlide);
       }
 
       // Update counter
@@ -728,9 +817,10 @@
     }
 
     function nextSlide() {
-      // If on DC ACT slide and not all steps shown, show next step instead
-      if (currentSlide === dcActSlideNum && dcActStep < dcActItems.length) {
-        showNextDcActStep();
+      // If on an animated slide and not all steps shown, show next step instead
+      const config = animatedSlides[currentSlide];
+      if (config && config.step < config.items.length) {
+        showNextStep(currentSlide);
         return;
       }
       currentSlide++;
