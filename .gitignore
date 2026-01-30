@@ -1,0 +1,21 @@
+# Instructor-only files (answers, grading criteria, facilitation notes)
+workshops/*/facilitation-guide.md
+workshops/*/PRD.md
+workshops/*/zoom-setup.md
+workshops/*/ai-prompt-template.md
+
+# Planning and spec documents
+specs/
+
+# Claude and tooling configuration
+.claude/
+.specify/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
