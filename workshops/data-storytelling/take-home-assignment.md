@@ -27,8 +27,8 @@ You will be evaluated on **two things**:
 
 | Descriptive Title (FAIL) | Takeaway Title (PASS) |
 |--------------------------|----------------------------|
-| "Website Traffic by Source" | "Organic Search Drives 59% of Our Conversions" |
-| "Q3 Employee Survey Data" | "Sales Department Has 3x Higher Turnover Than Engineering" |
+| "Website Traffic by Source" | "Organic search drives 59% of our conversions" |
+| "Q3 Employee Survey Data" | "Sales department has 3x higher turnover than engineering" |
 
 **Remember**: A Takeaway Title tells the viewer what to conclude. A callout draws their eye to the evidence.
 
@@ -123,9 +123,9 @@ Submit as a **single-page PDF**. Here's how to export:
 
 ## Good titles
 
-- "Email Marketing Delivers 47% of Conversions on Just 25% of Budget"
-- "Customer Service Scores Dropped 15 Points Since Q2"
-- "Mobile Users Convert 3x Higher Than Desktop"
+- "Email marketing delivers 47% of conversions on just 25% of budget"
+- "Customer service scores dropped 15 points since Q2"
+- "Mobile users convert 3x higher than desktop"
 
 ## Bad titles
 
