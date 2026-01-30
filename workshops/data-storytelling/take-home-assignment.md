@@ -102,9 +102,6 @@ Analyze this data, find the key insight, and transform this into an slide with a
 - **Visualization**: Supports the insight (not just displays all data)
 - **Recommendation**: Clear "so what?" action
 
-### Deadline
-Submit by the date provided by your instructor.
-
 ---
 
 ## Tips

@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Take-Home Assignment</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .download-link {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+    }
+    .download-link::before {
+      content: "⬇ ";
+    }
+  </style>
 </head>
 <body>
   <div class="slide">
@@ -16,25 +37,27 @@
         <h3>Your Assignment</h3>
         <ol>
           <li>Choose ONE of two "bad slide" options provided</li>
-          <li>Transform it into an insight-driven slide</li>
+          <li>Transform it into a slide with a <span class="highlight">Takeaway Title</span></li>
           <li>Your title must convey the "so what" - not just describe the data</li>
           <li>Submit your transformed slide</li>
         </ol>
       </div>
 
       <p><strong>Evaluation Criterion:</strong></p>
-      <p>Does your slide title convey an <span class="highlight">insight</span> rather than just describing the data?</p>
+      <p>Does your slide have a <span class="highlight">Takeaway Title</span> rather than a descriptive title?</p>
 
-      <p style="margin-top: 30px;"><strong>Options:</strong></p>
+      <p style="margin-top: 24px;"><strong>Options:</strong></p>
       <ul>
-        <li><strong>Option A:</strong> Website Traffic by Source (4 traffic sources, 12 months)</li>
-        <li><strong>Option B:</strong> Employee Satisfaction Survey (5 categories, 2 years)</li>
+        <li><strong>Option A:</strong> Website Traffic (4 sources)</li>
+        <li><strong>Option B:</strong> Employee Satisfaction (4 departments)</li>
       </ul>
+
+      <a href="../take-home-assignment.pdf" class="download-link" target="_blank">Download Assignment Details (PDF)</a>
     </div>
 
     <div class="slide-footer">
       <span>Data Storytelling Workshop</span>
-      <span>Due: [See assignment document]</span>
+      <span>Individual Assignment</span>
     </div>
   </div>
 </body>
