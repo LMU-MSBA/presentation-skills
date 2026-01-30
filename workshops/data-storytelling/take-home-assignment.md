@@ -9,27 +9,28 @@ You practiced transforming descriptive slides into slides with Takeaway Titles d
 1. **Choose ONE** of the two "bad" slides below (Option A or Option B)
 2. **Analyze the data** to find the key insight
 3. **Create a new slide** with:
-   - An Takeaway Title (not descriptive)
-   - A visualization that supports your insight
-   - A clear recommendation
+   - A Takeaway Title (not descriptive)
+   - A visualization with a **callout** highlighting your key insight
+   - No fancy charts required—screenshot the data table and add a callout
 
 ### What to Submit
 
 - Your transformed slide (Google Slides, PowerPoint, or PDF)
 - The slide must have an **Takeaway Title**
 
-### Evaluation Criterion
+### Evaluation Criteria
 
-You will be evaluated on **one thing only**:
+You will be evaluated on **two things**:
 
-> **Does your slide have an Takeaway Title?**
+> 1. **Does your slide have a Takeaway Title?**
+> 2. **Does your slide have a callout highlighting the key insight?**
 
 | Descriptive Title (FAIL) | Takeaway Title (PASS) |
 |--------------------------|----------------------------|
 | "Website Traffic by Source" | "Organic Search Drives 59% of Our Conversions" |
 | "Q3 Employee Survey Data" | "Sales Department Has 3x Higher Turnover Than Engineering" |
 
-**Remember**: An Takeaway Title tells the viewer what to conclude and what to do. A descriptive title just labels the data.
+**Remember**: A Takeaway Title tells the viewer what to conclude. A callout draws their eye to the evidence.
 
 ---
 
@@ -96,9 +97,9 @@ Submit as a **single-page PDF**. Here's how to export:
 1. File → Export To → PDF
 
 ### What we're looking for
-- **Title**: Insight-driven, not descriptive
-- **Visualization**: Supports the insight (not just displays all data)
-- **Recommendation**: Clear "so what?" action
+- **Title**: Takeaway Title, not descriptive
+- **Callout**: Highlights the key data point (circle, arrow, color, or annotation)
+- **Visualization**: Screenshot of the data table is fine—no chart required
 
 ---
 
