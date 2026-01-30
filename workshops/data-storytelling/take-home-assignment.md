@@ -94,8 +94,16 @@ Analyze this data, find the key insight, and transform this into an slide with a
 ## How to submit
 
 ### Format
-- Google Slides (share link with edit access), PowerPoint (.pptx), or PDF
-- Single slide only
+Submit as a **single-page PDF**. Here's how to export:
+
+**Google Slides:**
+1. File → Download → PDF Document (.pdf)
+
+**PowerPoint:**
+1. File → Export → Create PDF/XPS (Windows) or File → Save As → PDF (Mac)
+
+**Keynote:**
+1. File → Export To → PDF
 
 ### What we're looking for
 - **Title**: Insight-driven, not descriptive
