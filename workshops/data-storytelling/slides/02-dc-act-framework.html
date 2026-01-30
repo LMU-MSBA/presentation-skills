@@ -5,17 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DC ACT Framework</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    #animated-slide .framework-list li {
-      opacity: 0 !important;
-      transform: translateX(-20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    #animated-slide .framework-list li.visible {
-      opacity: 1 !important;
-      transform: translateX(0);
-    }
-  </style>
 </head>
 <body>
   <div class="slide" id="animated-slide">
@@ -55,13 +44,21 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    (function() {
       const items = document.querySelectorAll('#animated-slide .framework-list li');
       let currentStep = 0;
 
+      // Hide all items immediately
+      items.forEach(function(item) {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      });
+
       function showNext() {
         if (currentStep < items.length) {
-          items[currentStep].classList.add('visible');
+          items[currentStep].style.opacity = '1';
+          items[currentStep].style.transform = 'translateX(0)';
           currentStep++;
         }
       }
@@ -74,7 +71,7 @@
           showNext();
         }
       });
-    });
+    })();
   </script>
 </body>
 </html>
