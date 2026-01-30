@@ -270,9 +270,9 @@
   </div>
 
   <!-- Slide 2: DC ACT Framework -->
-  <div class="slide" data-slide="2">
+  <div class="slide" data-slide="2" id="dc-act-slide">
     <h1 class="slide-title">The 5-Step Analytics Framework</h1>
-    <ul class="framework-list">
+    <ul class="framework-list" id="dc-act-list">
       <li>
         <span class="step-number">1</span>
         <span class="step-word">Define</span>
@@ -672,6 +672,36 @@
     let currentSlide = 1;
     const totalSlides = 14;
 
+    // DC ACT Framework animation state
+    const dcActSlideNum = 2;
+    let dcActStep = 0;
+    const dcActItems = document.querySelectorAll('#dc-act-list li');
+
+    // Hide DC ACT items initially
+    dcActItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+
+    function showNextDcActStep() {
+      if (dcActStep < dcActItems.length) {
+        dcActItems[dcActStep].style.opacity = '1';
+        dcActItems[dcActStep].style.transform = 'translateX(0)';
+        dcActStep++;
+        return true; // Step was shown
+      }
+      return false; // All steps shown
+    }
+
+    function resetDcActAnimation() {
+      dcActStep = 0;
+      dcActItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+      });
+    }
+
     function showSlide(n) {
       // Wrap around
       if (n > totalSlides) currentSlide = 1;
@@ -688,11 +718,21 @@
         activeSlide.classList.add('active');
       }
 
+      // Reset DC ACT animation when entering that slide
+      if (currentSlide === dcActSlideNum) {
+        resetDcActAnimation();
+      }
+
       // Update counter
       document.getElementById('currentSlide').textContent = currentSlide;
     }
 
     function nextSlide() {
+      // If on DC ACT slide and not all steps shown, show next step instead
+      if (currentSlide === dcActSlideNum && dcActStep < dcActItems.length) {
+        showNextDcActStep();
+        return;
+      }
       currentSlide++;
       showSlide(currentSlide);
     }
