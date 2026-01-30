@@ -5,11 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DC ACT Framework</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .framework-list li {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .framework-list li.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
 </head>
 <body>
-  <div class="slide">
+  <div class="slide" id="animated-slide">
     <h1 class="slide-title">The DC ACT Framework</h1>
-    <p class="slide-subtitle">5 Steps to Data-Driven Decision Making</p>
+    <p class="slide-subtitle">5 steps to data-driven decisions</p>
 
     <ul class="framework-list">
       <li>
@@ -42,5 +53,27 @@
     <div class="slide-footer">
     </div>
   </div>
+
+  <script>
+    const items = document.querySelectorAll('.framework-list li');
+    let currentStep = 0;
+
+    document.addEventListener('click', function() {
+      if (currentStep < items.length) {
+        items[currentStep].classList.add('visible');
+        currentStep++;
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter') {
+        e.preventDefault();
+        if (currentStep < items.length) {
+          items[currentStep].classList.add('visible');
+          currentStep++;
+        }
+      }
+    });
+  </script>
 </body>
 </html>
