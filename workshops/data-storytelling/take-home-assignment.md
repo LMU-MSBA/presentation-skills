@@ -29,8 +29,8 @@ You will be evaluated on **two things**:
 
 | Descriptive Title (FAIL) | Takeaway Title (PASS) |
 |--------------------------|----------------------------|
-| "Website Traffic by Source" | "Organic search drives 59% of our conversions" |
-| "Q3 Employee Survey Data" | "Sales department has 3x higher turnover than engineering" |
+| "Q4 Marketing Channel Performance" | "Email marketing delivers 9x more conversions per dollar than display ads" |
+| "Customer Survey Results" | "Customer service scores dropped 15 points since Q2" |
 
 **Remember**: A Takeaway Title tells the viewer what to conclude. A callout draws their eye to the evidence.
 
@@ -119,7 +119,7 @@ Submit as a **single-page PDF**. Here's how to export:
    - Circle or highlight the most important numbers
    - Add an arrow pointing to the key data point
    - Bold or color the critical row/column
-   - Add a text box with a brief annotation (e.g., "3x higher!")
+   - Add a text box with a brief annotation (e.g., "Lowest cost!")
 
 ---
 
