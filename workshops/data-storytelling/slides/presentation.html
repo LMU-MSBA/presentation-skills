@@ -349,16 +349,15 @@
   </div>
 
   <!-- Slide 3: Scenario Introduction -->
-  <div class="slide" data-slide="3">
-    <h1 class="slide-title">Your Scenario</h1>
+  <div class="slide" data-slide="3" id="scenario-slide">
+    <h1 class="slide-title">The budget decision</h1>
     <div class="slide-body">
-      <div class="exercise-box" style="margin-bottom: 24px;">
+      <div class="exercise-box scenario-item" style="margin-bottom: 24px;">
         <h3 style="margin-bottom: 12px;">Marketing Channel ROI Analysis</h3>
         <p style="margin-bottom: 8px;">You are a marketing analyst presenting Q4 results to the CMO.</p>
         <p style="margin-bottom: 0;">Your goal: Help leadership decide where to allocate next quarter's budget.</p>
       </div>
-      <p style="margin-bottom: 12px;"><strong>The Challenge:</strong> You have data on 4 marketing channels, each receiving $25,000 in Q4. Performance varied significantly. The CMO needs a clear recommendation.</p>
-      <p style="font-size: 26px; color: var(--primary); font-weight: 600;"><strong>Your Task:</strong> Create a slide that communicates the key insight from this data.</p>
+      <p class="scenario-item" style="margin-bottom: 0;"><strong>The Challenge:</strong> You have data on 4 marketing channels, each receiving $25,000 in Q4. Performance varied significantly. The CMO needs a clear recommendation.</p>
     </div>
     <div class="slide-footer">
     </div>
@@ -522,11 +521,10 @@
 
   <!-- Slide 8: Interactive Activity Link -->
   <div class="slide" data-slide="8">
-    <h1 class="slide-title">Practice: What's the story?</h1>
-    <p class="slide-subtitle">Create takeaway titles from NPS data</p>
-    <div class="slide-body" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 40px;">
-      <p style="font-size: 26px; color: var(--secondary); margin-bottom: 50px; max-width: 800px; line-height: 1.5;">Look at the same data and practice writing different takeaway titles based on what story you want to tell.</p>
-      <a href="https://docs.google.com/presentation/d/1tbE27GxtOel5ofWzOBiWihQi92PzyCT2rN40TZEUIj8/edit?usp=sharing" target="_blank" style="display: inline-block; padding: 24px 48px; background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%); color: white; text-decoration: none; border-radius: 12px; font-size: 26px; font-weight: 600; box-shadow: 0 4px 14px rgba(45, 55, 72, 0.3);">Open Interactive Slides</a>
+    <h1 class="slide-title" style="margin-bottom: 20px;">Practice: What's the story?</h1>
+    <p class="slide-subtitle" style="margin-bottom: 80px;"><a href="https://docs.google.com/presentation/d/1tbE27GxtOel5ofWzOBiWihQi92PzyCT2rN40TZEUIj8/edit?usp=sharing" target="_blank" style="color: var(--accent); text-decoration: underline;">Create takeaway titles from NPS data</a></p>
+    <div class="slide-body" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <p style="font-size: 32px; color: var(--secondary); max-width: 900px; line-height: 1.6;">Look at the same data and practice writing different takeaway titles based on what story you want to tell.</p>
     </div>
     <div class="slide-footer">
     </div>
@@ -712,6 +710,10 @@
     const animatedSlides = {
       2: { // DC ACT Framework
         items: document.querySelectorAll('#dc-act-list li'),
+        step: 0
+      },
+      3: { // Scenario Introduction
+        items: document.querySelectorAll('#scenario-slide .scenario-item'),
         step: 0
       },
       6: { // Knaflic Principles
