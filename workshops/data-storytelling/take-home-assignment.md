@@ -26,8 +26,8 @@ You will be evaluated on **one thing only**:
 
 | Descriptive Title (FAIL) | Takeaway Title (PASS) |
 |--------------------------|----------------------------|
-| "Website Traffic by Source" | "Organic Search Drives 59% of Conversions—Double Down on SEO" |
-| "Q3 Employee Survey Data" | "Sales Department Turnover Crisis—Satisfaction Scores Demand Action" |
+| "Website Traffic by Source" | "Organic Search Drives 59% of Our Conversions" |
+| "Q3 Employee Survey Data" | "Sales Department Has 3x Higher Turnover Than Engineering" |
 
 **Remember**: An Takeaway Title tells the viewer what to conclude and what to do. A descriptive title just labels the data.
 
@@ -122,9 +122,9 @@ Submit as a **single-page PDF**. Here's how to export:
 
 ## Good titles
 
-- "Email Marketing Delivers 47% of Conversions on 25% of Budget—Reallocate Now"
-- "Customer Service Scores Dropped 15 Points—Immediate Training Required"
-- "Mobile Users Convert 3x Higher—Prioritize Mobile Experience"
+- "Email Marketing Delivers 47% of Conversions on Just 25% of Budget"
+- "Customer Service Scores Dropped 15 Points Since Q2"
+- "Mobile Users Convert 3x Higher Than Desktop"
 
 ## Bad titles
 
