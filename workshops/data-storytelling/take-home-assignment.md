@@ -53,12 +53,7 @@ You will be evaluated on **one thing only**:
 
 ### Your Task
 
-Analyze this data, find the key insight, and transform this into an slide with a Takeaway Title.
-
-**Hints** (don't read until you've tried):
-- Which source delivers the most value (conversions)?
-- Which source has concerning engagement metrics?
-- What should the marketing team do differently?
+Analyze this data, find the key insight, and transform this into a slide with a Takeaway Title.
 
 ---
 
@@ -82,12 +77,7 @@ Analyze this data, find the key insight, and transform this into an slide with a
 
 ### Your Task
 
-Analyze this data, find the key insight, and transform this into an slide with a Takeaway Title.
-
-**Hints** (don't read until you've tried):
-- Which department has the biggest problem?
-- Is there a relationship between satisfaction and turnover?
-- What should HR prioritize?
+Analyze this data, find the key insight, and transform this into a slide with a Takeaway Title.
 
 ---
 
@@ -136,6 +126,3 @@ Submit as a **single-page PDF**. Here's how to export:
 - "Customer Survey Results"
 - "Q3 Revenue Overview"
 
----
-
-*Workshop based on "Storytelling with Data" principles by Cole Nussbaumer Knaflic*
