@@ -6,13 +6,13 @@
   <title>DC ACT Framework</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .framework-list li {
-      opacity: 0;
+    #animated-slide .framework-list li {
+      opacity: 0 !important;
       transform: translateX(-20px);
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
-    .framework-list li.visible {
-      opacity: 1;
+    #animated-slide .framework-list li.visible {
+      opacity: 1 !important;
       transform: translateX(0);
     }
   </style>
@@ -55,24 +55,25 @@
   </div>
 
   <script>
-    const items = document.querySelectorAll('.framework-list li');
-    let currentStep = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+      const items = document.querySelectorAll('#animated-slide .framework-list li');
+      let currentStep = 0;
 
-    document.addEventListener('click', function() {
-      if (currentStep < items.length) {
-        items[currentStep].classList.add('visible');
-        currentStep++;
-      }
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter') {
-        e.preventDefault();
+      function showNext() {
         if (currentStep < items.length) {
           items[currentStep].classList.add('visible');
           currentStep++;
         }
       }
+
+      document.addEventListener('click', showNext);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter') {
+          e.preventDefault();
+          showNext();
+        }
+      });
     });
   </script>
 </body>
