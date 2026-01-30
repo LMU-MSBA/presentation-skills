@@ -112,6 +112,12 @@ Submit as a **single-page PDF**. Here's how to export:
 
 4. **Cut the clutter.** Only show data that supports your insight.
 
+5. **Screenshot the data table as your visualization.** You don't need to create a fancy chart—a screenshot of the table works fine. Add callouts to highlight your key insight:
+   - Circle or highlight the most important numbers
+   - Add an arrow pointing to the key data point
+   - Bold or color the critical row/column
+   - Add a text box with a brief annotation (e.g., "3x higher!")
+
 ---
 
 ## Good titles
